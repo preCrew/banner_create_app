@@ -4,7 +4,11 @@ module.exports = {
   env: {
     node: true,
   },
-  rules: { 'react/jsx-filename-extension': [0] },
+  rules: { 
+    'react/jsx-filename-extension': [0],
+    "indent": ["error", 4]
+
+  },
   plugins: [
     '@typescript-eslint',
   ],
