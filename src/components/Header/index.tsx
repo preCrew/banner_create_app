@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import Header from './index'
+import HeaderBlock from './style'
 
 interface indexProps {
-    
+
 }
 
-const index = () => {
+const Header = () => {
     return (
-        <Header>
-        </Header>
+        <HeaderBlock>
+        </HeaderBlock>
     );
 }
 
-export default index;
+export default Header;
