@@ -1,0 +1,50 @@
+import styled from "styled-components";
+
+export const ButtonStyle = styled.div`
+display: inline-flex;
+margin: 4px 0;
+padding: 8px 16px;
+border-radius: 4px;
+background-color: #000;
+color: #fff;
+font-size: 18px;
+cursor: pointer;
+align-items: center;
+justify-content: center;
+flex-grow: 1;
+`
+
+export const InputField = styled.input`
+border-radius: 4px;
+background: #000;
+color: #fff;
+font-size: 18px;
+line-height: 2;
+padding: 2px 2px 2px 8px;
+width: 56px;
+display:block;
+`
+export const InputFieldInline = styled(InputField)`
+display:inline-block;
+`
+
+const ButtonBlock = styled.div`
+padding: 16px;
+width: 32px;
+height: 32px;
+border: 3px solid rgba(0, 0, 0, 0.3);
+border-radius: 50%;
+cursor: pointer;
+`
+
+export const BgButton = styled(ButtonBlock)`
+    background-color: #85e5ddff;
+`
+
+export const FgButton = styled(ButtonBlock)`
+    background-color: #a1233bff;
+`
+
+export const BdButton = styled(ButtonBlock)`
+    background-color: #d69eb3ff;
+`
