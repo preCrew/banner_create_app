@@ -9,6 +9,7 @@ declare module 'styled-components' {
       },
       size: {
         fs18: string,
+        fs22: string,
       }
     },   
     color : {
