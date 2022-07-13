@@ -10,8 +10,6 @@ export default styled.div`
     height: 100%;
     position: relative;
     z-index: 100;
-
-    margin-left: 500px;
 `;
 
 export const PickerCircle = styled.div<TPickerCircle>`
