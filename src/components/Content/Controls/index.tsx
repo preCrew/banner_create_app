@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import ControlsBlock from './style'
 
+import ControlsBox from './ControlsBox';
+
 interface ControlsProps {
     
 }
@@ -8,7 +10,7 @@ interface ControlsProps {
 const Controls = () => {
     return (
         <ControlsBlock>
-            
+            <ControlsBox title="BackgroundColor"/>
         </ControlsBlock>
     );
 }
