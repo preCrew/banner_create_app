@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
 import { ButtonStyle } from './style'
-import styled, { css } from 'styled-components';
 
 
-interface uploadBt {
+interface UploadBt {
 
 }
 
-export default function uploadBt() {
+export default function UploadBt() {
 
     return (
         <ButtonStyle> Upload </ButtonStyle>

@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { InputField } from './style'
-import styled from "styled-components";
 
-interface fontSizeBt {
+interface FontSizeBt {
 
 }
 
-export default function fontSizeBt() {
+export default function FontSizeBt() {
+    const [num, setNum] = React.useState<number>(60);
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        let num = Number(e.target.value);
+        setNum(num);
+
+    };
 
     return (
         <InputField
             id="borderw"
             type="number"
             name="username"
-            value="0"
+            value={num}
+            onChange={handleChange}
             min="0"
         />
     );

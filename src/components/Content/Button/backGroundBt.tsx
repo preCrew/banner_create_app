@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
 import { BgButton } from './style';
-import styled, { css } from 'styled-components';
 
 
-interface backGroundBt {
+interface BackGroundBt {
 
 }
 
-export default function backGroundBt() {
+export default function BackGroundBt() {
 
     return (
         <BgButton>
+
         </BgButton>
     );
 }

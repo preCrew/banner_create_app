@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { InputField } from './style'
-import styled from "styled-components";
 
-interface borderWidthBt {
+interface BorderWidthBt {
 
 }
 
+export default function BorderWidthBt() {
+    const [num, setNum] = React.useState<number>(0);
 
-export default function borderWidthBt() {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        let num = Number(e.target.value);
+        setNum(num);
+
+    };
+
     return (
         <InputField
             id="borderw"
             type="number"
             name="username"
-            value="0"
+            value={num}
+            onChange={handleChange}
             min="0"
         />
     );

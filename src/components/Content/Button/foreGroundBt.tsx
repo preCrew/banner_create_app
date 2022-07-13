@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
 import { FgButton } from './style';
-import styled, { css } from 'styled-components';
 
 
-interface foreGroundBt {
+interface ForeGroundBt {
 
 }
 
-export default function foreGroundBt() {
+export default function ForeGroundBt() {
 
     return (
         <FgButton>

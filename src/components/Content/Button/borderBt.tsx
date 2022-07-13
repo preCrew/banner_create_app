@@ -3,11 +3,11 @@ import { BdButton } from './style';
 import styled, { css } from 'styled-components';
 
 
-interface borderBt {
+interface BorderBt {
 
 }
 
-export default function borderBt() {
+export default function BorderBt() {
 
     return (
         <BdButton>
