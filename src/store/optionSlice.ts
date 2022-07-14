@@ -15,9 +15,9 @@ interface TOptionState {
     heightRatio: number;
 };
 const initialContentsState: TOptionState = {
-    backgroundColor: '',
-    foregroundColor: '',
-    borderColor: '',
+    backgroundColor: '#ffffff',
+    foregroundColor: '#ffffff',
+    borderColor: '#ffffff',
     borderWidth: 0,
     fontSize: 0,
     textShadow: {
