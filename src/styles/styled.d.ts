@@ -1,5 +1,8 @@
 import 'styled-components';
 
+type FontSizes = 18 | 22 | 60;
+type FontSizeType = `fs${FontSizes}`;
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     font: {
@@ -8,8 +11,7 @@ declare module 'styled-components' {
         bold: string,
       },
       size: {
-        fs18: string,
-        fs22: string,
+        [size in FontSizeType]: string;
       }
     },   
     color : {
