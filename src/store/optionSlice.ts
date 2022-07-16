@@ -13,6 +13,7 @@ interface TOptionState {
         blur?: number;
     };
     heightRatio: number;
+    text: string;
 };
 const initialContentsState: TOptionState = {
     backgroundColor: '#ffffff',
@@ -25,7 +26,8 @@ const initialContentsState: TOptionState = {
         y: 0,
         blur: 0
     },
-    heightRatio: 0
+    heightRatio: 0,
+    text: 'edit me',
 };
 
 const contentsSlice = createSlice({
@@ -53,6 +55,9 @@ const contentsSlice = createSlice({
         changeHeightRatio: (state: TOptionState, action: PayloadAction<number>) => {
             state.heightRatio = action.payload;
         },
+        changeText: (state: TOptionState, action: PayloadAction<string>) => {
+            state.text = action.payload;
+        }
     },
 });
 
@@ -64,6 +69,7 @@ export const {
     changeBorderWidth,
     changeFontSize,
     changeTextShadow,
-    changeHeightRatio
+    changeHeightRatio,
+    changeText,
 } = contentsSlice.actions;
 export default contentsSlice.reducer;
