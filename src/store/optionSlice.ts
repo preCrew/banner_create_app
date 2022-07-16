@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type TTextShadowType =  "x" | "y" | "blur" | "color";
-interface TOptionState {
+export interface TOptionState {
     backgroundColor: string;
     foregroundColor: string;
     borderColor: string;
