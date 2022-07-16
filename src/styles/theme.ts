@@ -8,6 +8,7 @@ const theme: DefaultTheme = {
     },
     size: {
       fs18: '18px',
+      fs22: '22px',
     },
   },
   color : {
