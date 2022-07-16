@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type TTextShadowType =  "x" | "y" | "blur" | "color";
+type TFlexAlignType = "flex-start" | "center" | "flex-end";
+
 export interface TOptionState {
     backgroundColor: string;
     foregroundColor: string;
@@ -13,6 +15,10 @@ export interface TOptionState {
         blur: number;
         color: string;
     };
+    textAlignment: {
+        justifyContent: TFlexAlignType;
+        alignItems: TFlexAlignType;
+    }
     heightRatio: number;
     text: string;
 };
@@ -28,7 +34,11 @@ const initialContentsState: TOptionState = {
         blur: 0,
         color: '#00000040'
     },
-    heightRatio: 0,
+    textAlignment: {
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    heightRatio: 30,
     text: 'edit me',
 };
 
