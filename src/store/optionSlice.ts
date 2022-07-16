@@ -67,6 +67,15 @@ const contentsSlice = createSlice({
                 [action.payload.type]: action.payload.value,
             }
         },
+        changeTextAlignment: (state: TOptionState, action: PayloadAction<{
+            horizontal: TFlexAlignType,
+            vetival: TFlexAlignType,
+        }>) => {
+            // 가로방향
+            state.textAlignment.justifyContent = action.payload.horizontal;
+            // 세로방향
+            state.textAlignment.alignItems = action.payload.vetival;
+        },
         changeHeightRatio: (state: TOptionState, action: PayloadAction<number>) => {
             state.heightRatio = action.payload;
         },
@@ -84,6 +93,7 @@ export const {
     changeBorderWidth,
     changeFontSize,
     changeTextShadow,
+    changeTextAlignment,
     changeHeightRatio,
     changeText,
 } = contentsSlice.actions;
