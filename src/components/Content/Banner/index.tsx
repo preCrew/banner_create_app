@@ -10,7 +10,6 @@ interface BannerProps {
 const Banner = () => {
     const options = useAppSelector(state => state.option);
     const dispatch = useAppDispatch();
-    console.log(options);
 
     const handleInput = (e: React.FormEvent<HTMLDivElement>) => {
         dispatch(changeText(e.currentTarget.innerText));
