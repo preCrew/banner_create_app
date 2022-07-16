@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type TTextShadowType =  "x" | "y" | "blur";
+type TTextShadowType =  "x" | "y" | "blur" | "color";
 interface TOptionState {
     backgroundColor: string;
     foregroundColor: string;
@@ -8,9 +8,10 @@ interface TOptionState {
     borderWidth: number;
     fontSize: number;
     textShadow: {
-        x?: number;
-        y?: number;
-        blur?: number;
+        x: number;
+        y: number;
+        blur: number;
+        color: string;
     };
     heightRatio: number;
     text: string;
@@ -24,7 +25,8 @@ const initialContentsState: TOptionState = {
     textShadow: {
         x: 0,
         y: 0,
-        blur: 0
+        blur: 0,
+        color: '#00000040'
     },
     heightRatio: 0,
     text: 'edit me',
@@ -49,8 +51,11 @@ const contentsSlice = createSlice({
         changeFontSize: (state: TOptionState, action: PayloadAction<number>) => {
             state.fontSize = action.payload;
         },
-        changeTextShadow : (state: TOptionState, action: PayloadAction<{type: TTextShadowType, value: number}>) => {
-            state.textShadow[action.payload.type] = action.payload.value;
+        changeTextShadow : (state: TOptionState, action: PayloadAction<{type: TTextShadowType, value: number | string}>) => {
+            state.textShadow = {
+                ...state.textShadow,
+                [action.payload.type]: action.payload.value,
+            }
         },
         changeHeightRatio: (state: TOptionState, action: PayloadAction<number>) => {
             state.heightRatio = action.payload;
