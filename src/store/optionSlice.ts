@@ -4,8 +4,8 @@ type TTextShadowType =  "x" | "y" | "blur" | "color";
 type TFlexAlignType = "flex-start" | "center" | "flex-end";
 
 export interface TOptionState {
-    backgroundColor: string;
-    foregroundColor: string;
+    backgroundColor: string;//
+    foregroundColor: string;//
     borderColor: string;
     borderWidth: number;
     fontSize: number;
@@ -27,7 +27,7 @@ const initialContentsState: TOptionState = {
     foregroundColor: '#ffffff',
     borderColor: '#ffffff',
     borderWidth: 0,
-    fontSize: 0,
+    fontSize: 60,
     textShadow: {
         x: 0,
         y: 0,
