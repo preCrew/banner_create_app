@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
+import { useAppSelector } from '../../../store/hooks';
 import BannerBlock from './style'
 
 interface BannerProps {
@@ -6,9 +7,11 @@ interface BannerProps {
 }
 
 const Banner = () => {
+    const options = useAppSelector(state => state.option);
+
     return (
-        <BannerBlock>
-            
+        <BannerBlock options={options} contentEditable>
+            {options.text} 
         </BannerBlock>
     );
 }

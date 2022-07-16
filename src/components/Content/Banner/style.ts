@@ -1,10 +1,38 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { TOptionState } from "../../../store/optionSlice";
+import { theme } from "../../../styles/theme";
 
-export default styled.div`
-  height: 30vw;
+export default styled.div<{
+  options: TOptionState;
+}>`
+  width: 100%;
+  height: 100%;
+  
+  outline: 0;
   margin: 16px;
-  background: #187818;
   flex-grow: 1;
   position: sticky;
   top: 0;
+
+  ${({options}) => css`
+    background: ${options.backgroundColor};
+    color: ${options.foregroundColor};
+    font-size: ${options.fontSize}px;
+    height: ${options.heightRatio}vw;
+    border ${options.borderWidth}px solid ${options.borderColor};
+    font-weight: ${theme.font.weight.fw700};
+
+    display: flex;
+    /* 가로방향 정렬 */
+    justify-content: ${options.textAlignment.justifyContent};
+    /* 세로방향 정렬 */
+    align-items: ${options.textAlignment.alignItems};
+    /* 텍스트 그림자 */
+    text-shadow: ${options.textShadow.x}px ${options.textShadow.y}px ${options.textShadow.blur}px ${options.textShadow.color};
+  `}
+`;
+
+export const BannerText = styled.div<Pick<TOptionState, "textAlignment" | "textShadow">>`
+
+  display: flex;
 `;
