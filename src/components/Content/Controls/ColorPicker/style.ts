@@ -6,10 +6,8 @@ interface TPickerCircle {
 }
 
 export default styled.div`
-    width: 100%;
     height: 100%;
     position: relative;
-    z-index: 100;
 `;
 
 export const PickerCircle = styled.div<TPickerCircle>`
@@ -23,10 +21,12 @@ export const PickerCircle = styled.div<TPickerCircle>`
     `};
 
     cursor: pointer;
+    z-index: 1;
 `;
 
 export const Picker = styled.div`
     position: absolute;
     left: -220px;
     top: 20px;
+    z-index: 1;
 `;
