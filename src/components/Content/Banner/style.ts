@@ -29,10 +29,16 @@ export default styled.div<{
     align-items: ${options.textAlignment.alignItems};
     /* 텍스트 그림자 */
     text-shadow: ${options.textShadow.x}px ${options.textShadow.y}px ${options.textShadow.blur}px ${options.textShadow.color};
+
+
+    & ::selection {
+      color: ${options.backgroundColor};
+      background: ${options.foregroundColor};
+    }
   `}
 `;
 
-export const BannerText = styled.div<Pick<TOptionState, "textAlignment" | "textShadow">>`
-
-  display: flex;
+export const BannerText = styled.div`
+  outline: 0;
+  text-align: center;
 `;
