@@ -3,6 +3,10 @@ import 'styled-components';
 type FontSizes = 18 | 22 | 60;
 type FontSizeType = `fs${FontSizes}`;
 
+
+type FontWeights = 700;
+type FontWeighType = `fw${FontWeights}`;
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     font: {
@@ -12,6 +16,9 @@ declare module 'styled-components' {
       },
       size: {
         [size in FontSizeType]: string;
+      },
+      weight: {
+        [weight in FontWeighType]: number;
       }
     },   
     color : {
