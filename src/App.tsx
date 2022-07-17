@@ -1,20 +1,14 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import Content from './components/Content';
-import Header from './components/Header';
+import React from 'react';
+
+import './App.css';
 
 const App = () => {
 
   return (
-    <AppBlock>
-      <Header />
-      <Content />
-    </AppBlock>
+    <div className="App">
+      테스트
+    </div>
   );
 };
-export default App;
 
-const AppBlock = styled.div`
- width: 100%;
- height: 100%;
-`;
+export default App;
