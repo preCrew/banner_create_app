@@ -8,7 +8,7 @@ interface BannerProps {
 }
 
 export const onHtmlToPng = () => {
-    const box = document.querySelector('.banner') as HTMLDivElement | HTMLDivElement;
+    const box = document.querySelector('.banner') as HTMLDivElement;
     domtoimage
         .toBlob(box)
         .then((blob) => {
