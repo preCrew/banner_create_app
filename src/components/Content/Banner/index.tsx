@@ -1,14 +1,25 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import BannerBlock from './style'
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
 
 interface BannerProps {
-    
+
+}
+
+export const onHtmlToPng = () => {
+    const box = document.querySelector('.banner') as HTMLDivElement | HTMLDivElement;
+    domtoimage
+        .toBlob(box)
+        .then((blob) => {
+            saveAs(blob, 'banner.png');
+        });
 }
 
 const Banner = () => {
     return (
-        <BannerBlock>
-            
+        <BannerBlock className='banner'>
+
         </BannerBlock>
     );
 }

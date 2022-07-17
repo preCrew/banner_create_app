@@ -6,17 +6,19 @@ import BorderBt from '../Button/borderBt'
 import TextAlignment from '../Button/TextAlignment'
 import Button from '../Button/Buttonl';
 import Input from '../input/Input'
+import { onHtmlToPng } from '../Banner/index'
 
 interface ControlsProps {
 
 }
+
 
 const Controls = () => {
     let test: number = 2;
     return (
         <ControlsBlock>
             {/* DownloadBt &  RandomizeBt */}
-            <Button onClick={() => { alert("Download click!!"); }}>
+            <Button onClick={() => { onHtmlToPng() }}>
                 Download 🚀
             </Button>
             <Button onClick={() => { alert("Randomize click!!"); }}>
