@@ -19,15 +19,14 @@ const App = () => {
 
   return (
     <AppBlock>
-      <Header/>
-      <Content/>
+      <Header />
+      <Content />
     </AppBlock>
   );
 };
-
 export default App;
 
 const AppBlock = styled.div`
-  width: 100%;
-  height: 100%;
+ width: 100%;
+ height: 100%;
 `;

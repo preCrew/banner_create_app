@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ControlsBlock from './style'
 
 import ControlsBox from './ControlsBox';
@@ -6,10 +6,11 @@ import ColorPicker from './ColorPicker';
 import { changeBackgroundColor, changeBorderColor, changeForegroundColor } from '../../../store/optionSlice';
 
 interface ControlsProps {
-    
+
 }
 
 const Controls = () => {
+
     return (
         <ControlsBlock>
             <ControlsBox title="Background color">
