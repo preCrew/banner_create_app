@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import ControlsBlock from './style'
-import DownLoadBt from '../Button/downLoadBt'
-import RandomizeBt from '../Button/randomizeBt'
 import BackGroundBt from '../Button/backGroundBt'
 import ForeGroundBt from '../Button/foreGroundBt'
 import BorderBt from '../Button/borderBt'
-import BorderWidthBt from '../Button/borderWidthBt'
-import FontSizeBt from '../Button/FontSizeBt'
 import TextAlignment from '../Button/TextAlignment'
-import UploadBt from '../Button/uploadBt'
+import Button from '../Button/Buttonl';
+import Input from '../input/Input'
 
 interface ControlsProps {
 
@@ -19,8 +16,12 @@ const Controls = () => {
     return (
         <ControlsBlock>
             {/* DownloadBt &  RandomizeBt */}
-            <DownLoadBt></DownLoadBt>
-            <RandomizeBt></RandomizeBt>
+            <Button onClick={() => { alert("Download click!!"); }}>
+                Download 🚀
+            </Button>
+            <Button onClick={() => { alert("Randomize click!!"); }}>
+                Randomize ✨
+            </Button>
 
             {/* BackGround color */}
             <br />
@@ -40,12 +41,12 @@ const Controls = () => {
             {/* BorderWidth */}
             <br />
             <h3>BorderWidth</h3>
-            <BorderWidthBt></BorderWidthBt>
+            <Input result={0}> </Input>
 
             {/* FontSize */}
             <br />
             <h3>FontSize</h3>
-            <FontSizeBt></FontSizeBt>
+            <Input result={60}> </Input>
 
             {/* Text Alignment */}
             <br />
@@ -55,7 +56,14 @@ const Controls = () => {
             {/* Upload */}
             <br />
             <h3>BackGround Upload</h3>
-            <UploadBt></UploadBt>
+            <Button onClick={() => { alert("Upload click!!"); }}>
+                Upload
+            </Button>
+
+            {/* Height ratio */}
+            <br />
+            <h3>Height ratio</h3>
+            <Input result={30}> </Input>
         </ControlsBlock>
     );
 }
