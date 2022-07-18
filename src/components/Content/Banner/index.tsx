@@ -7,8 +7,7 @@ export interface BannerProps {
 
 
 const Banner = (imgUrl: any) => {
-    console.log("imgUrl: " + imgUrl); //err: GET img-url:t; net::ERR_UNKNOWN_URL_SCHEME 
-    //background-image: url에 imgUrl을 넣을수 없다고 하는듯
+    console.log("imgUrl: " + imgUrl);
 
     return (
         <>

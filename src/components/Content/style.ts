@@ -9,3 +9,7 @@ export default styled.div`
     flex-direction: column;
   }
 `;
+
+export const SCustomInput = styled.input`
+display: none;
+`;

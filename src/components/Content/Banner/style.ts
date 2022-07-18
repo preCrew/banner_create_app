@@ -9,5 +9,5 @@ export default styled.div<BannerProps>`
   flex-grow: 1;
   position: sticky;
   top: 0;
-  background-image: url(${img});
+  background-image: url(${props => props.isImg});
 `;
