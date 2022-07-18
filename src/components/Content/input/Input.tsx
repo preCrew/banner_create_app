@@ -1,18 +1,23 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { InputField } from './style'
 
 interface InputProps {
+    type: React.HTMLInputTypeAttribute;
+    value: string | number | readonly string[];
+    onChange: () => void;
 }
 
 export default function InputBt({
-    
+    type,
+    value,
+    onChange,
 }: InputProps) {
 
     return (
         <InputField
-            type="number"
-            value={num}
-            onChange={handleChange}
+            type={type}
+            value={value}
+            onChange={onChange}
         />
     );
 }
