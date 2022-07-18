@@ -5,7 +5,6 @@ import { theme } from "../../../styles/theme";
 export default styled.div<{
   options: TOptionState;
 }>`
-  width: 100%;
   height: 100%;
   
   outline: 0;
