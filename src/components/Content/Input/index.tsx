@@ -1,40 +1,32 @@
-import React, { ChangeEvent, useState } from 'react';
-import { useAppSelector, useAppDispatch } from '../../../store/hooks';
-import { changeBorderWidth, changeFontSize } from '../../../store/optionSlice'
+import React from 'react';
 import { InputField } from './style'
 
 interface InputProps {
-    inputValName: 'borderWidth' | 'fontSize' | 'heightRatio'
-    changeInputFunction: 
-        typeof changeBorderWidth | 
-        typeof changeFontSize
-    //children?: React.ReactNode;
-    //result: number;
+    type: React.HTMLInputTypeAttribute;
+    value?: string | number | readonly string[];
+    accept?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    display?: 'block' | 'none';
 }
 
-export default function InputBt({
-    inputValName,
-    changeInputFunction
-}: InputProps) {
-    const defaultNum = useAppSelector(state => state.option[inputValName])
-    const dispatch = useAppDispatch()
-
-    const [num, setNum] = React.useState<number>(defaultNum);
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-        let num = Number(e.target.value);
-        setNum(num);
-        dispatch(changeInputFunction(num))
-    };
+const Input = React.forwardRef(({
+    type,
+    value,
+    accept,
+    onChange,
+    display,
+}: InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
 
     return (
         <InputField
-            id="borderw"
-            type="number"
-            name="username"
-            value={num}
-            onChange={handleChange}
-            min="0"
+            ref={ref}
+            type={type}
+            value={value}
+            accept={accept}
+            onChange={onChange}
+            display={display}
         />
     );
-}
+});
+
+export default Input
