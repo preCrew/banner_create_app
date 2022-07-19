@@ -1,18 +1,23 @@
 import { ControlsLayout, ControlsTitle } from "./styles"
 
 interface ControlsBoxProps{
-    title: string
+    title?: string
     children?: React.ReactNode
-    layoutStyle?: string
+    layoutStyle?: "row" | "column";
 }
 
-const ControlsBox = ({title, children, layoutStyle}: ControlsBoxProps) => {
+const ControlsBox = ({
+    title, 
+    children, 
+    layoutStyle
+}: ControlsBoxProps) => {
     return (
         <ControlsLayout className={layoutStyle}>{/*열이면 col 추가*/}
-            <ControlsTitle>{title}</ControlsTitle>
+            { title && 
+                <ControlsTitle>{title}</ControlsTitle>
+            }
             {children}
         </ControlsLayout>
     )
 }
-
 export default ControlsBox
