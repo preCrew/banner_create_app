@@ -5,6 +5,7 @@ interface ControlsBoxProps{
     children?: React.ReactNode
     flexDirection?: "row" | "column";
     alignItems?: 'flex-start' | 'center' | 'flex-end';
+    justifyContent?: 'space-between' | 'space-around';
 }
 
 const ControlsBox = ({
@@ -12,11 +13,13 @@ const ControlsBox = ({
     children, 
     flexDirection,
     alignItems,
+    justifyContent
 }: ControlsBoxProps) => {
     return (
         <ControlsLayout 
             flexDirection={flexDirection}
             alignItems={alignItems}
+            justifyContent={justifyContent}
         >
             { title && 
                 <ControlsTitle>{title}</ControlsTitle>

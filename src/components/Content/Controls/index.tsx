@@ -84,22 +84,22 @@ const Controls = () => {
                 flexDirection='column'
                 alignItems='flex-start'
             >   
-                <ControlsBox>
-                    <ControlsBox title="X">
+                <ControlsBox justifyContent='space-around'>
+                    <ControlsBox title="X" justifyContent='space-around'>
                         <Input
                             type={'number'}
                             value={options.textShadow.x}
                             onChange={e => { handleChangeTextShadow(e,"x") }}
                         />
                     </ControlsBox>
-                    <ControlsBox title="Y">
+                    <ControlsBox title="Y" justifyContent='space-around'>
                         <Input
                             type={'number'}
                             value={options.textShadow.y}
                             onChange={e => { handleChangeTextShadow(e,"y") }}
                         />
                     </ControlsBox>
-                    <ControlsBox title="Blur">
+                    <ControlsBox title="Blur" justifyContent='space-around'>
                         <Input
                             type={'number'}
                             value={options.textShadow.blur}
