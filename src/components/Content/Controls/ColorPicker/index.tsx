@@ -5,12 +5,12 @@ import useOutsideDetect from '../../../../hooks/useOutsideClick';
 
 interface ColorPickerProps {
     color: string;
-    onChangePicker: (color: ColorResult) => void;
+    onChange: (color: ColorResult) => void;
 }
 
 const ColorPicker = ({
     color,
-    onChangePicker
+    onChange
 }:ColorPickerProps) => {
     const [isClick, setIsClick] = useState(false);
     const circleRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ const ColorPicker = ({
                     <Picker>
                         <SketchPicker
                             color={color}
-                            onChange={onChangePicker}
+                            onChange={onChange}
                         />
                     </Picker>
                 }
