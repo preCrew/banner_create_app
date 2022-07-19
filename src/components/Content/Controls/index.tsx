@@ -3,7 +3,11 @@ import ControlsBlock from './style'
 
 import ControlsBox from './ControlsBox';
 import ColorPicker from './ColorPicker';
-import { changeBackgroundColor, changeBorderColor, changeForegroundColor } from '../../../store/optionSlice';
+import Input from '../Input';
+import { 
+    changeBackgroundColor, changeBorderColor, changeBorderWidth, 
+    changeFontSize, changeForegroundColor, changeHeightRatio 
+} from '../../../store/optionSlice';
 
 interface ControlsProps {
 
@@ -31,6 +35,24 @@ const Controls = () => {
                     changeColorFunction={changeBorderColor}
                 />
             </ControlsBox>
+            <ControlsBox title="Border width">
+                <Input 
+                    inputValName='borderWidth'
+                    changeInputFunction={changeBorderWidth}
+                />
+            </ControlsBox>          
+            <ControlsBox title="Font size">
+                <Input 
+                    inputValName='fontSize'
+                    changeInputFunction={changeFontSize}
+                />
+            </ControlsBox>   
+            <ControlsBox title="Height ratio">
+                <Input 
+                    inputValName='heightRatio'
+                    changeInputFunction={changeHeightRatio}
+                />
+            </ControlsBox>               
         </ControlsBlock>
     );
 }
