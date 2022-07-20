@@ -1,18 +1,31 @@
 import { ControlsLayout, ControlsTitle } from "./styles"
 
 interface ControlsBoxProps{
-    title: string
+    title?: string
     children?: React.ReactNode
-    layoutStyle?: string
+    flexDirection?: "row" | "column";
+    alignItems?: 'flex-start' | 'center' | 'flex-end';
+    justifyContent?: 'space-between' | 'space-around';
 }
 
-const ControlsBox = ({title, children, layoutStyle}: ControlsBoxProps) => {
+const ControlsBox = ({
+    title, 
+    children, 
+    flexDirection,
+    alignItems,
+    justifyContent
+}: ControlsBoxProps) => {
     return (
-        <ControlsLayout className={layoutStyle}>{/*열이면 col 추가*/}
-            <ControlsTitle>{title}</ControlsTitle>
+        <ControlsLayout 
+            flexDirection={flexDirection}
+            alignItems={alignItems}
+            justifyContent={justifyContent}
+        >
+            { title && 
+                <ControlsTitle>{title}</ControlsTitle>
+            }
             {children}
         </ControlsLayout>
     )
 }
-
 export default ControlsBox

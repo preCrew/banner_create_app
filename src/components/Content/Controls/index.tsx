@@ -8,19 +8,28 @@ import {
     changeFontSize, changeForegroundColor, changeHeightRatio ,
     changeTextShadow
 } from '../../../store/optionSlice';
-import Input from '../input';
+import Input from '../Input';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks'
+import { ColorResult } from 'react-color';
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 const Controls = () => {
-    const {
-        borderWidth, 
-        fontSize, 
-        textShadow, 
-        heightRatio
-    } = useAppSelector( state => state.option)
+    const options = useAppSelector( state => state.option)
     const dispatch = useAppDispatch();
+
+    const handleChangeBackgroundColor = (color: ColorResult) => {
+        dispatch(changeBackgroundColor(color.hex));
+    }
+    const handleChangeForegroundColor = (color: ColorResult) => {
+        dispatch(changeForegroundColor(color.hex));
+    }
+    const handleChangeBorderColor = (color: ColorResult) => {
+        dispatch(changeBorderColor(color.hex));
+    }
+    const handleChangeTextShadowColor = (color: ColorResult) => {
+        dispatch(changeTextShadow({type: 'color', value: color.hex}));
+    }
 
     const handleChangeBorderWidth = (e: InputChangeEvent) => {
         dispatch(changeBorderWidth(e.target.valueAsNumber));
@@ -39,40 +48,74 @@ const Controls = () => {
         <ControlsBlock>
             <ControlsBox title="Background color">
                 <ColorPicker
-                    whosColorChange={'backgroundColor'}
-                    changeColorFunction={changeBackgroundColor}
+                    color={options.backgroundColor}
+                    onChange={handleChangeBackgroundColor}
                 />
             </ControlsBox>
             <ControlsBox title="Foreground color">
                 <ColorPicker
-                    whosColorChange={'foregroundColor'}
-                    changeColorFunction={changeForegroundColor}
+                    color={options.foregroundColor}
+                    onChange={handleChangeForegroundColor}
                 />
             </ControlsBox>
             <ControlsBox title="Border color">
                 <ColorPicker
-                    whosColorChange={'borderColor'}
-                    changeColorFunction={changeBorderColor}
+                    color={options.borderColor}
+                    onChange={handleChangeBorderColor}
                 />
             </ControlsBox>
             <ControlsBox title="Border width">
                 <Input
                     type={'number'}
-                    value={borderWidth}
+                    value={options.borderWidth}
                     onChange={handleChangeBorderWidth}
                 />
             </ControlsBox>          
             <ControlsBox title="Font size">
                 <Input
                     type={'number'}
-                    value={fontSize}
+                    value={options.fontSize}
                     onChange={handleChangeFontSize}
                 />
             </ControlsBox>   
+            {/* Text Shadow */}
+            <ControlsBox 
+                title='Text Shadow'
+                flexDirection='column'
+                alignItems='flex-start'
+            >   
+                <ControlsBox justifyContent='space-around'>
+                    <ControlsBox title="X" justifyContent='space-around'>
+                        <Input
+                            type={'number'}
+                            value={options.textShadow.x}
+                            onChange={e => { handleChangeTextShadow(e,"x") }}
+                        />
+                    </ControlsBox>
+                    <ControlsBox title="Y" justifyContent='space-around'>
+                        <Input
+                            type={'number'}
+                            value={options.textShadow.y}
+                            onChange={e => { handleChangeTextShadow(e,"y") }}
+                        />
+                    </ControlsBox>
+                    <ControlsBox title="Blur" justifyContent='space-around'>
+                        <Input
+                            type={'number'}
+                            value={options.textShadow.blur}
+                            onChange={e => { handleChangeTextShadow(e,"blur") }}
+                        />
+                    </ControlsBox>
+                    <ColorPicker
+                        color={options.textShadow.color}
+                        onChange={handleChangeTextShadowColor}
+                    />
+                </ControlsBox>
+            </ControlsBox>
             <ControlsBox title="Height ratio">
                 <Input
                     type={'number'}
-                    value={heightRatio}
+                    value={options.heightRatio}
                     onChange={handleChangeHeighRatio}
                 />
             </ControlsBox>               
