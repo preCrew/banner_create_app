@@ -8,7 +8,7 @@ import {
     changeFontSize, changeForegroundColor, changeHeightRatio ,
     changeTextShadow
 } from '../../../store/optionSlice';
-import Input from '../input';
+import Input from '../Input';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks'
 import { ColorResult } from 'react-color';
 
