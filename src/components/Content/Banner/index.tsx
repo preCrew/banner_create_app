@@ -5,7 +5,6 @@ export interface BannerProps {
     isImg: any,
 }
 
-
 const Banner = (imgUrl: any) => {
     console.log("imgUrl: " + imgUrl);
 

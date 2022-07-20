@@ -6,19 +6,52 @@ import BorderBt from '../Button/borderBt'
 import TextAlignment from '../Button/TextAlignment'
 import Button from '../Button/Buttonl';
 import Input from '../input/Input'
-import styled from "styled-components";
-import Banner from '../Banner/index'
-import SCustomInput from '../style'
+import { ImgUpload } from '../index'
 
 interface ControlsProps {
 
 }
 
+/*
+    *
+    이미지 업로드 기능
+    *
+    */
+
+
+export const OnChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any): void => {
+    const [imageFile, setImageFile] = useState<string | any>({
+        imageFile: "",
+        viewUrl: ""
+    });
+
+    const [loaded, setLoaded] = useState<boolean>(false);
+
+    let imageRef: any;
+
+    console.log("사진 업로드 버튼 클릭");
+    e.preventDefault();
+
+    const fileReader = new FileReader();
+    if (e.target.files[0]) {
+        setLoaded(true);
+        fileReader.readAsDataURL(e.target.files[0]);
+    }
+    fileReader.onload = () => {
+        setImageFile({
+            imageFile: e.target.files[0],
+            viewUrl: fileReader.result
+        });
+        setLoaded(true);
+    };
+
+    console.log(imageFile.viewUrl);
+    console.log(loaded);
+};
 
 
 const Controls = () => {
     let test: number = 2;
-
 
 
     return (
@@ -64,7 +97,8 @@ const Controls = () => {
             {/* Upload */}
             <br />
             <h3>BackGround Upload</h3>
-            <Button onClick={() => { <SCustomInput></SCustomInput> }}>
+            <ImgUpload></ImgUpload>
+            <Button onClick={() => { }}>
                 Upload
             </Button>
 
