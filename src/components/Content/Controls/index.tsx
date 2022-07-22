@@ -6,11 +6,12 @@ import ColorPicker from './ColorPicker';
 import { 
     changeBackgroundColor, changeBorderColor, changeBorderWidth, 
     changeFontSize, changeForegroundColor, changeHeightRatio ,
-    changeTextShadow
+    changeTextShadow, changeTextAlignment
 } from '../../../store/optionSlice';
 import Input from '../Input';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks'
 import { ColorResult } from 'react-color';
+import TextAlignment from '../Button/TextAlignment';
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
@@ -39,7 +40,7 @@ const Controls = () => {
     }
     const handleChangeTextShadow = (e: InputChangeEvent, type: 'x' | 'y' | 'blur') => {
         dispatch(changeTextShadow({type, value: e.target.valueAsNumber}));
-    }
+    } 
     const handleChangeHeighRatio = (e: InputChangeEvent) => {
         dispatch(changeHeightRatio(e.target.valueAsNumber));
     }
@@ -111,6 +112,13 @@ const Controls = () => {
                         onChange={handleChangeTextShadowColor}
                     />
                 </ControlsBox>
+            </ControlsBox>
+            <ControlsBox 
+                title="Text alignment"
+                flexDirection="column"
+                alignItems='flex-start'
+            >
+                <TextAlignment options={options}/>
             </ControlsBox>
             <ControlsBox title="Height ratio">
                 <Input

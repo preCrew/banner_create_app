@@ -16,7 +16,10 @@ const Banner = () => {
     }
 
     return (
-        <BannerBlock options={options} >
+        <BannerBlock 
+            options={options}
+            style={options.textAlignment}
+            >
             <BannerText
                 onInput={handleInput}
                 contentEditable
