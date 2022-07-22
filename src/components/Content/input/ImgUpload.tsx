@@ -4,20 +4,18 @@ import { InputField } from './style'
 interface InputImgProps {
     type: React.HTMLInputTypeAttribute;
     onChange: (e: ChangeEvent<HTMLInputElement> | any) => void;
-    AddBg: any;
 }
 
 
-const InputImg = React.forwardRef(({ type, onChange, AddBg }: InputImgProps, ref) => {
-    console.log("addBg: " + AddBg);
-    console.log("ref: " + ref);
+const InputImg = React.forwardRef(({ type, onChange }: InputImgProps, ref2) => {
+    console.log("ref: " + ref2);
 
 
     return (
         <InputField
             type={type}
             accept="image/*"
-            ref={ref as React.RefObject<HTMLInputElement>}
+            ref={ref2 as React.RefObject<HTMLInputElement>}
             onChange={onChange}
         />
 

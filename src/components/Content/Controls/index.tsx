@@ -10,15 +10,7 @@ import Input from '../input/Input'
 import ImgInput from "../input/ImgUpload"
 
 interface ControlsProps {
-
-}
-
-export const ImgUpload = (props: any) => {
-    return (
-        <>
-
-        </>
-    )
+    AddBg: (Object: string | any) => void
 }
 
 /*
@@ -28,44 +20,45 @@ export const ImgUpload = (props: any) => {
 */
 
 
-const OnChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any, AddBg: any): void => {
-    const [imageFile, setImageFile] = useState<string | any>({
-        imageFile: "",
-        viewUrl: ""
-    });
-
-    const [loaded, setLoaded] = useState<boolean>(false);
 
 
-    console.log("사진 업로드 버튼 클릭");
-    e.preventDefault();
-
-    const fileReader = new FileReader();
-    if (e.target.files[0]) {
-        setLoaded(true);
-        fileReader.readAsDataURL(e.target.files[0]);
-    }
-    fileReader.onload = () => {
-        setImageFile({
-            imageFile: e.target.files[0],
-            viewUrl: fileReader.result
-        });
-        setLoaded(true);
-    };
-
-    console.log(imageFile.viewUrl);
-    console.log(loaded);
-
-    const { value } = imageFile.viewUrl;
-    console.log("value: " + value);
-    const { addBgFc } = AddBg;
-    addBgFc(value);
-
-
-};
-
-export default function Controls(props: any) {
+export default function Controls({ AddBg }: ControlsProps) {
     let test: number = 2;
+
+    const ImgUploadRef = useRef();
+
+    const OnChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any): void => {
+
+        console.log("사진 업로드 버튼 클릭");
+        console.log(e.target.files);
+
+        e.preventDefault();
+
+        // const fileReader = new FileReader();
+        // if (e.target.files[0]) {
+
+        //     fileReader.readAsDataURL(e.target.files[0]);
+        // }
+        // fileReader.onload = () => {
+
+        //     AddBg({
+        //         imageFile: e.target.files[0],
+        //         viewUrl: fileReader.result
+        //     });
+
+
+        // };
+
+        const url = URL.createObjectURL(e.target.files[0]);
+        AddBg({
+            imageFile: e.target.files[0],
+            viewUrl: url
+        })
+
+
+
+
+    };
 
     return (
         <ControlsBlock>
@@ -111,7 +104,7 @@ export default function Controls(props: any) {
             <br />
             <h3>BackGround Upload</h3>
             {/* 이미지 Upload */}
-            <ImgInput type={"file"} onChange={() => OnChangeUploadHandler} AddBg={props.AddBg}></ImgInput>
+            <ImgInput type={"file"} onChange={OnChangeUploadHandler} ref={ImgUploadRef} ></ImgInput>
             {/* Height ratio */}
             <br />
             <h3>Height ratio</h3>

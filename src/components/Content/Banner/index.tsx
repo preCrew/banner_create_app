@@ -10,7 +10,6 @@ const Banner = (imgUrl: any) => {
 
     console.log("imgUrl: " + imgUrl);
 
-
     return (
         <>
             <BannerBlock isImg={imgUrl}>
