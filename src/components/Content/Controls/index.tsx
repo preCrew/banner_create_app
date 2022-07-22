@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, useRef } from 'react';
 import ControlsBlock from './style'
 import BackGroundBt from '../Button/backGroundBt'
 import ForeGroundBt from '../Button/foreGroundBt'
@@ -6,20 +6,29 @@ import BorderBt from '../Button/borderBt'
 import TextAlignment from '../Button/TextAlignment'
 import Button from '../Button/Buttonl';
 import Input from '../input/Input'
-import { ImgUpload } from '../index'
+
+import ImgInput from "../input/ImgUpload"
 
 interface ControlsProps {
 
 }
 
+export const ImgUpload = (props: any) => {
+    return (
+        <>
+
+        </>
+    )
+}
+
 /*
-    *
-    이미지 업로드 기능
-    *
-    */
+*
+이미지 업로드 기능
+*
+*/
 
 
-export const OnChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any): void => {
+const OnChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any, AddBg: any): void => {
     const [imageFile, setImageFile] = useState<string | any>({
         imageFile: "",
         viewUrl: ""
@@ -27,7 +36,6 @@ export const OnChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any): v
 
     const [loaded, setLoaded] = useState<boolean>(false);
 
-    let imageRef: any;
 
     console.log("사진 업로드 버튼 클릭");
     e.preventDefault();
@@ -47,12 +55,17 @@ export const OnChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any): v
 
     console.log(imageFile.viewUrl);
     console.log(loaded);
+
+    const { value } = imageFile.viewUrl;
+    console.log("value: " + value);
+    const { addBgFc } = AddBg;
+    addBgFc(value);
+
+
 };
 
-
-const Controls = () => {
+export default function Controls(props: any) {
     let test: number = 2;
-
 
     return (
         <ControlsBlock>
@@ -97,11 +110,8 @@ const Controls = () => {
             {/* Upload */}
             <br />
             <h3>BackGround Upload</h3>
-            <ImgUpload></ImgUpload>
-            <Button onClick={() => { }}>
-                Upload
-            </Button>
-
+            {/* 이미지 Upload */}
+            <ImgInput type={"file"} onChange={() => OnChangeUploadHandler} AddBg={props.AddBg}></ImgInput>
             {/* Height ratio */}
             <br />
             <h3>Height ratio</h3>
@@ -109,5 +119,3 @@ const Controls = () => {
         </ControlsBlock>
     );
 }
-
-export default Controls;

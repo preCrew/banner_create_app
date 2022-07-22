@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Banner from './Banner';
-import Controls from './Controls';
+import Controls, { ImgUpload } from './Controls';
 import ContentBlock from './style'
-import ImgInput from "./input/ImgUpload"
-import { OnChangeUploadHandler } from "./Controls/index"
+
 
 interface ContentProps {
 
@@ -11,21 +10,22 @@ interface ContentProps {
 
 const Content = () => {
 
+    const [bannerBg, setBannerBg] = useState("");
+
+    const AddBg = (newBg: any) => {
+        setBannerBg(newBg);
+        console.log("!!!newBg: " + newBg);
+
+    }
+
     return (
         <ContentBlock>
-            <Banner />
-            <Controls />
+            <Banner imgUrl={bannerBg} />
+            <Controls AddBg={AddBg} />
         </ContentBlock>
     );
 }
 
-export const ImgUpload = () => {
-    return (
-        <>
-            {/* 이미지 Upload */}
-            <ImgInput type={"file"} onChange={OnChangeUploadHandler}></ImgInput>
-        </>
-    )
-}
+
 
 export default Content;
