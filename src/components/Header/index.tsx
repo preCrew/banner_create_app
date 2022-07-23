@@ -12,7 +12,7 @@ const Header = () => {
         <HeaderBlock>
             <Router>
                 <h1><Link to="/">Banner</Link></h1>
-                <a className="ico-git" target="_blank" href="https://github.com/preCrew/banner_create_app" rel="noreferrer"><img src={icoGithub}/> Gitgub</a>
+                <a className="ico-git" target="_blank" href="https://github.com/preCrew/banner_create_app" rel="noreferrer"><img src={icoGithub}/> Github</a>
             </Router>
         </HeaderBlock>
     );
