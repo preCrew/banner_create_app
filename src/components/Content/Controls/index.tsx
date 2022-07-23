@@ -12,6 +12,9 @@ import Input from '../Input';
 import {useAppDispatch, useAppSelector} from '../../../store/hooks'
 import { ColorResult } from 'react-color';
 import TextAlignment from '../Button/TextAlignment';
+import Button from '../Button/Buttonl';
+import { getRandomColor } from '../../../utils/colorUtil';
+
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
@@ -19,6 +22,11 @@ const Controls = () => {
     const options = useAppSelector( state => state.option)
     const dispatch = useAppDispatch();
 
+    const handleClickRandomizeButton = () => {
+        dispatch(changeBackgroundColor(getRandomColor()));
+        dispatch(changeForegroundColor(getRandomColor()));
+        dispatch(changeBorderColor(getRandomColor()));
+    }
     const handleChangeBackgroundColor = (color: ColorResult) => {
         dispatch(changeBackgroundColor(color.hex));
     }
@@ -47,6 +55,10 @@ const Controls = () => {
 
     return (
         <ControlsBlock>
+            <ControlsBox>
+                <Button onClick={()=>{alert("미구현")}}>Download 🚀</Button>
+                <Button onClick={handleClickRandomizeButton}>Randomize ✨</Button>
+            </ControlsBox>
             <ControlsBox title="Background color">
                 <ColorPicker
                     color={options.backgroundColor}

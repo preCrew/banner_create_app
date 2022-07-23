@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ButtonStyle = styled.div`
 display: inline-flex;
-margin: 4px 0;
+margin: 4px 4px;
 padding: 8px 16px;
 border-radius: 4px;
 background-color: #000;
