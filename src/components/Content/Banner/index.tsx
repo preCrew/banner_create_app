@@ -8,8 +8,6 @@ export interface BannerProps {
 
 const Banner = (url: any) => {
 
-    console.log(url);
-
     return (
         <>
             <BannerBlock isImg={url}>

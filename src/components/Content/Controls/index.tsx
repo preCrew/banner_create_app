@@ -13,16 +13,9 @@ interface ControlsProps {
     AddBg: (val: string | any) => void
 }
 
-/*
-*
-이미지 업로드 기능
-*
-*/
-
-
-
-
 export default function Controls({ AddBg }: ControlsProps) {
+
+    //Img Upload 
     const OnChangeUploadHandler = (e: ChangeEvent<HTMLInputElement> | any): void => {
         e.preventDefault();
         const fileReader = new FileReader();
@@ -80,8 +73,8 @@ export default function Controls({ AddBg }: ControlsProps) {
             {/* Upload */}
             <br />
             <h3>BackGround Upload</h3>
-            {/* 이미지 Upload */}
-            <ImgInput type={"file"} onChange={OnChangeUploadHandler}></ImgInput>
+            <ImgInput onChange={OnChangeUploadHandler}></ImgInput>
+
             {/* Height ratio */}
             <br />
             <h3>Height ratio</h3>

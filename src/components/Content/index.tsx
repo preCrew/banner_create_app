@@ -15,12 +15,6 @@ const Content = () => {
         url: '',
     });
 
-    // bannerBg State Component
-    // const AddBg = (newBg: string | any) => {
-    //     console.log("!!!bannerBg: " + bannerBg.viewUrl);
-
-    // }
-
     return (
         <ContentBlock>
             <Banner imgUrl={bannerBg.url} />
