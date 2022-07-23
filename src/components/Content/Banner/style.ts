@@ -11,7 +11,7 @@ export default styled.div<{
   margin: 16px;
   flex-grow: 1;
   position: sticky;
-  top: 0;
+  top: 16px;
 
   ${({options}) => css`
     background: ${options.backgroundColor};
