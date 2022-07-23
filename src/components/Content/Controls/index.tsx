@@ -55,7 +55,7 @@ const Controls = () => {
 
     return (
         <ControlsBlock>
-            <ControlsBox justifyContent='space-between'>
+            <ControlsBox>
                 <Button onClick={()=>{alert("미구현")}}>Download 🚀</Button>
                 <Button onClick={handleClickRandomizeButton}>Randomize ✨</Button>
             </ControlsBox>
