@@ -10,24 +10,21 @@ interface ContentProps {
 
 const Content = () => {
     // bannerBg State
-    const [bannerBg, setBannerBg] = useState({
-        imageFile: "",
-        viewUrl: ""
+    const [bannerBg, setBannerBg] = useState<string | any>({
+        img: '',
+        url: '',
     });
 
     // bannerBg State Component
-    const AddBg = (newBg: string | any) => {
-        setBannerBg(newBg);
-        console.log("!!!newBg: " + newBg);
-        console.log("!!!bannerBg: " + bannerBg.imageFile);
-        console.log("!!!bannerBg: " + bannerBg.viewUrl);
+    // const AddBg = (newBg: string | any) => {
+    //     console.log("!!!bannerBg: " + bannerBg.viewUrl);
 
-    }
+    // }
 
     return (
         <ContentBlock>
-            <Banner imgUrl={bannerBg.viewUrl} />
-            <Controls AddBg={AddBg} />
+            <Banner imgUrl={bannerBg.url} />
+            <Controls AddBg={setBannerBg} />
         </ContentBlock>
     );
 }

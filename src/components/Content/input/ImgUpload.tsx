@@ -8,7 +8,7 @@ interface InputImgProps {
 
 
 const InputImg = React.forwardRef(({ type, onChange }: InputImgProps, ref2) => {
-    console.log("ref: " + ref2);
+    // console.log("ref: " + ref2);
 
 
     return (

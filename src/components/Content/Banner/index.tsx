@@ -6,13 +6,13 @@ export interface BannerProps {
 }
 
 
-const Banner = (imgUrl: any) => {
+const Banner = (url: any) => {
 
-    console.log("imgUrl: " + imgUrl);
+    console.log(url);
 
     return (
         <>
-            <BannerBlock isImg={imgUrl}>
+            <BannerBlock isImg={url}>
 
             </BannerBlock>
         </>
