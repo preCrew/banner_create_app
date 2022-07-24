@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/banner_create_app/static/css/main.fe079c53.css",
+    "main.js": "/banner_create_app/static/js/main.08a32eee.js",
+    "static/js/787.77a98ad5.chunk.js": "/banner_create_app/static/js/787.77a98ad5.chunk.js",
+    "static/media/NotoSansKR-Bold.otf": "/banner_create_app/static/media/NotoSansKR-Bold.c252383c4f70753be0e7.otf",
+    "static/media/NotoSansKR-Regular.otf": "/banner_create_app/static/media/NotoSansKR-Regular.e1aa54c04a18648e6468.otf",
+    "static/media/NotoSansKR-Regular.woff": "/banner_create_app/static/media/NotoSansKR-Regular.138b287053c1cf06692d.woff",
+    "static/media/NotoSansKR-Bold.woff": "/banner_create_app/static/media/NotoSansKR-Bold.a7bc4b81da6616f9d637.woff",
+    "static/media/ico-github.svg": "/banner_create_app/static/media/ico-github.aa4271d649aa353ed18a236f99eb23a0.svg",
+    "index.html": "/banner_create_app/index.html",
+    "main.fe079c53.css.map": "/banner_create_app/static/css/main.fe079c53.css.map",
+    "main.08a32eee.js.map": "/banner_create_app/static/js/main.08a32eee.js.map",
+    "787.77a98ad5.chunk.js.map": "/banner_create_app/static/js/787.77a98ad5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe079c53.css",
+    "static/js/main.08a32eee.js"
+  ]
+}
