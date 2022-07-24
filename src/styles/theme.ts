@@ -8,7 +8,12 @@ const theme: DefaultTheme = {
     },
     size: {
       fs18: '18px',
+      fs22: '22px',
+      fs60: '60px',
     },
+    weight: {
+      fw700: 700,
+    }
   },
   color : {
     primary1: 'rgb(0,0,0)',
