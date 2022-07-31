@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type TTextShadowType =  "x" | "y" | "blur" | "color";
+type TTextShadowType = "x" | "y" | "blur" | "color";
 type TFlexAlignType = "flex-start" | "center" | "flex-end";
 
 export interface TOptionState {
@@ -19,6 +19,7 @@ export interface TOptionState {
         justifyContent: TFlexAlignType;
         alignItems: TFlexAlignType;
     }
+    backgroundImg: string;
     heightRatio: number;
     text: string;
 };
@@ -38,6 +39,7 @@ const initialContentsState: TOptionState = {
         justifyContent: "center",
         alignItems: "center",
     },
+    backgroundImg: "",
     heightRatio: 30,
     text: 'edit me',
 };
@@ -61,7 +63,7 @@ const contentsSlice = createSlice({
         changeFontSize: (state: TOptionState, action: PayloadAction<number>) => {
             state.fontSize = action.payload;
         },
-        changeTextShadow : (state: TOptionState, action: PayloadAction<{type: TTextShadowType, value: number | string}>) => {
+        changeTextShadow: (state: TOptionState, action: PayloadAction<{ type: TTextShadowType, value: number | string }>) => {
             state.textShadow = {
                 ...state.textShadow,
                 [action.payload.type]: action.payload.value,
@@ -76,6 +78,9 @@ const contentsSlice = createSlice({
             // 세로방향
             state.textAlignment.alignItems = action.payload.vetival;
         },
+        changeBackgroundImg: (state: TOptionState, action: PayloadAction<string>) => {
+            state.backgroundImg = action.payload;
+        },
         changeHeightRatio: (state: TOptionState, action: PayloadAction<number>) => {
             state.heightRatio = action.payload;
         },
@@ -86,14 +91,15 @@ const contentsSlice = createSlice({
 });
 
 
-export const { 
-    changeBackgroundColor,  
+export const {
+    changeBackgroundColor,
     changeForegroundColor,
     changeBorderColor,
     changeBorderWidth,
     changeFontSize,
     changeTextShadow,
     changeTextAlignment,
+    changeBackgroundImg,
     changeHeightRatio,
     changeText,
 } = contentsSlice.actions;
