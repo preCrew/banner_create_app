@@ -13,6 +13,8 @@
     "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.0.6",
     "@types/react-redux": "^7.1.24",
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.5",
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
@@ -50,6 +52,8 @@
     ]
   },
   "devDependencies": {
+    "@types/dom-to-image": "^2.6.4",
+    "@types/file-saver": "^2.0.5",
     "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
