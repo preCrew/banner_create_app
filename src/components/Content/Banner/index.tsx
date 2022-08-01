@@ -27,48 +27,21 @@ const Banner = () => {
         dispatch(changeText(e.currentTarget.innerText));
     }
 
-    const BannerBlockColor = () => {
-        return (
-            <BannerBlock
-                className='banner'
-                options={options}
-                style={options.textAlignment}
-            >
-                <BannerText
-                    onInput={handleInput}
-                    contentEditable
-                    suppressContentEditableWarning
-                >
-                    {/* 초기값 */}
-                    Edit Me
-                </BannerText>
-            </BannerBlock>
-        );
-    }
-
-    const BannerBlockImg = () => {
-        return (
-            <BannerImgBlock
-                className='banner'
-                options={options}
-                style={options.textAlignment}
-            >
-                <BannerText
-                    onInput={handleInput}
-                    contentEditable
-                    suppressContentEditableWarning
-                >
-                    {/* 초기값 */}
-                    Edit Me
-                </BannerText>
-            </BannerImgBlock>
-        );
-    }
-
     return (
-        <>
-            {options.backgroundImg == "" ? <BannerBlockColor ></BannerBlockColor> : <BannerBlockImg></BannerBlockImg>}
-        </>
+        <BannerBlock
+            className='banner'
+            options={options}
+            style={options.textAlignment}
+        >
+            <BannerText
+                onInput={handleInput}
+                contentEditable
+                suppressContentEditableWarning
+            >
+                {/* 초기값 */}
+                Edit Me
+            </BannerText>
+        </BannerBlock>
     );
 }
 

@@ -1,16 +1,21 @@
 import React, { ChangeEvent } from 'react';
-import { ImgInputField, ImgInputButton } from './ImgUploadStyle'
+import { ImgInputWrap, ImgInputField, ImgInputButton,ImgResetBtn } from './ImgUploadStyle'
 
 interface InputImgProps {
     onChange: (e: ChangeEvent<HTMLInputElement> | any) => void;
+    onChangeReset:() => void;
 }
 
 
 
-const InputImg = React.forwardRef(({ onChange }: InputImgProps, ref2) => {
-
+const InputImg = React.forwardRef(({ 
+    onChange,
+    onChangeReset 
+}: InputImgProps, ref2) => {
+    
     return (
-        <>
+        <ImgInputWrap>
+            <ImgResetBtn onClick={onChangeReset}>(reset)</ImgResetBtn>
             <ImgInputButton htmlFor="input-file">
                 Upload
             </ImgInputButton>
@@ -21,7 +26,7 @@ const InputImg = React.forwardRef(({ onChange }: InputImgProps, ref2) => {
                 ref={ref2 as React.RefObject<HTMLInputElement>}
                 onChange={onChange}
             />
-        </>
+        </ImgInputWrap>
 
     );
 });

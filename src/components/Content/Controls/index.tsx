@@ -19,11 +19,7 @@ import ImgInput from "../Input/ImgUpload"
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
-interface ControlsProps {
-    AddBg: (val: string | any) => void
-}
-
-const Controls = ({ AddBg }: ControlsProps) => {
+const Controls = () => {
     const options = useAppSelector(state => state.option)
     const dispatch = useAppDispatch();
 
@@ -57,22 +53,19 @@ const Controls = ({ AddBg }: ControlsProps) => {
     const handleChangeHeighRatio = (e: InputChangeEvent) => {
         dispatch(changeHeightRatio(e.target.valueAsNumber));
     }
-    const OnChangeUploadHandler = (e: InputChangeEvent | any): void => {
+    const handleChangeImgUpload = (e: InputChangeEvent | any): void => {
         e.preventDefault();
         const fileReader = new FileReader();
         if (e.target.files) {
             fileReader.readAsDataURL(e.target.files[0]);
         }
         fileReader.onloadend = () => {
-            AddBg({
-                img: e.target.files[0],
-                url: fileReader.result,
-            });
-
+            dispatch(changeBackgroundImg(fileReader.result as string))
         }
-
-
-    };
+    }
+    const handleChangeReset = () =>{
+        dispatch(changeBackgroundImg(''))
+    }
 
 
     return (
@@ -155,8 +148,16 @@ const Controls = ({ AddBg }: ControlsProps) => {
                 <TextAlignment options={options} />
             </ControlsBox>
 
-            <ControlsBox title="BackGround Upload">
-                <ImgInput onChange={OnChangeUploadHandler}></ImgInput>
+            <ControlsBox 
+                title="BackGround Upload"
+                flexDirection='column'
+                alignItems='flex-start'               
+            >
+                
+                <ImgInput 
+                    onChange={handleChangeImgUpload}
+                    onChangeReset={handleChangeReset}
+                ></ImgInput>
             </ControlsBox>
 
             <ControlsBox title="Height ratio">

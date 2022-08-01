@@ -16,6 +16,7 @@ export default styled.div<{
 
   ${({ options }) => css`
     background: ${options.backgroundColor};
+    background-image:url(${options.backgroundImg});
     color: ${options.foregroundColor};
     font-size: ${options.fontSize}px;
     height: ${options.heightRatio}vw;
@@ -23,10 +24,6 @@ export default styled.div<{
     font-weight: ${theme.font.weight.fw700};
 
     display: flex;
-    /* 가로방향 정렬 */
-    justify-content: ${options.textAlignment.justifyContent};
-    /* 세로방향 정렬 */
-    align-items: ${options.textAlignment.alignItems};
     /* 텍스트 그림자 */
     text-shadow: ${options.textShadow.x}px ${options.textShadow.y}px ${options.textShadow.blur}px ${options.textShadow.color};
 

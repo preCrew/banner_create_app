@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+export const ImgInputWrap = styled.div`
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    padding:20px 0;
+`
+
+export const ImgResetBtn = styled.button`
+    background:none;
+    border:0;
+    padding:0;
+    font-size: ${({theme})=> theme.font.size.fs18};
+    cursor:pointer;
+`
 export const ImgInputField = styled.input.attrs({ type: 'file' })`
     position: absolute;
     width: 0;

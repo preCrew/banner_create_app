@@ -11,23 +11,11 @@ interface ContentProps {
 
 
 const Content = () => {
-    // bannerBg State
-    const [bannerBg, setBannerBg] = useState<string | any>({
-        img: '',
-        url: '',
-    });
-
-    const HandleChangeBackgroundImg = (url: any) => {
-        const dispatch = useAppDispatch();
-        dispatch(changeBackgroundImg(url));
-    }
-
-    HandleChangeBackgroundImg(bannerBg.url);
 
     return (
         <ContentBlock>
             <Banner />
-            <Controls AddBg={setBannerBg} />
+            <Controls/>
         </ContentBlock>
     );
 }
