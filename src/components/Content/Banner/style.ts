@@ -4,17 +4,56 @@ import { theme } from "../../../styles/theme";
 
 export default styled.div<{
   options: TOptionState;
+
 }>`
   height: 100%;
-  
   outline: 0;
   margin: 16px;
   flex-grow: 1;
   position: sticky;
   top: 16px;
+  
 
-  ${({options}) => css`
+  ${({ options }) => css`
     background: ${options.backgroundColor};
+    background-image:url(${options.backgroundImg});
+    color: ${options.foregroundColor};
+    font-size: ${options.fontSize}px;
+    height: ${options.heightRatio}vw;
+    border ${options.borderWidth}px solid ${options.borderColor};
+    font-weight: ${theme.font.weight.fw700};
+
+    display: flex;
+    /* 텍스트 그림자 */
+    text-shadow: ${options.textShadow.x}px ${options.textShadow.y}px ${options.textShadow.blur}px ${options.textShadow.color};
+
+
+    & ::selection {
+      color: ${options.backgroundColor};
+      background: ${options.foregroundColor};
+    }
+  `}
+`;
+
+export const BannerText = styled.div`
+  outline: 0;
+  text-align: center;
+`;
+
+export const BannerImgBlock = styled.div<{
+  options: TOptionState;
+
+}>`
+  height: 100%;
+  outline: 0;
+  margin: 16px;
+  flex-grow: 1;
+  position: sticky;
+  top: 16px;
+  
+
+  ${({ options }) => css`
+    background-image: url( ${options.backgroundImg});
     color: ${options.foregroundColor};
     font-size: ${options.fontSize}px;
     height: ${options.heightRatio}vw;
@@ -35,9 +74,4 @@ export default styled.div<{
       background: ${options.foregroundColor};
     }
   `}
-`;
-
-export const BannerText = styled.div`
-  outline: 0;
-  text-align: center;
 `;

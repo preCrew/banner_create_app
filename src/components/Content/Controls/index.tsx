@@ -3,23 +3,24 @@ import ControlsBlock from './style'
 
 import ControlsBox from './ControlsBox';
 import ColorPicker from './ColorPicker';
-import { 
-    changeBackgroundColor, changeBorderColor, changeBorderWidth, 
-    changeFontSize, changeForegroundColor, changeHeightRatio ,
-    changeTextShadow, changeTextAlignment
+import {
+    changeBackgroundColor, changeBorderColor, changeBorderWidth,
+    changeFontSize, changeForegroundColor, changeHeightRatio,
+    changeTextShadow, changeTextAlignment, changeBackgroundImg
 } from '../../../store/optionSlice';
 import Input from '../Input';
-import {useAppDispatch, useAppSelector} from '../../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
 import { ColorResult } from 'react-color';
 import TextAlignment from '../Button/TextAlignment';
 import Button from '../Button/Buttonl';
 import { getRandomColor } from '../../../utils/colorUtil';
-
+import { onHtmlToPng } from '../Banner/index'
+import ImgInput from "../Input/ImgUpload"
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 const Controls = () => {
-    const options = useAppSelector( state => state.option)
+    const options = useAppSelector(state => state.option)
     const dispatch = useAppDispatch();
 
     const handleClickRandomizeButton = () => {
@@ -37,7 +38,7 @@ const Controls = () => {
         dispatch(changeBorderColor(color.hex));
     }
     const handleChangeTextShadowColor = (color: ColorResult) => {
-        dispatch(changeTextShadow({type: 'color', value: color.hex}));
+        dispatch(changeTextShadow({ type: 'color', value: color.hex }));
     }
 
     const handleChangeBorderWidth = (e: InputChangeEvent) => {
@@ -47,16 +48,30 @@ const Controls = () => {
         dispatch(changeFontSize(e.target.valueAsNumber));
     }
     const handleChangeTextShadow = (e: InputChangeEvent, type: 'x' | 'y' | 'blur') => {
-        dispatch(changeTextShadow({type, value: e.target.valueAsNumber}));
-    } 
+        dispatch(changeTextShadow({ type, value: e.target.valueAsNumber }));
+    }
     const handleChangeHeighRatio = (e: InputChangeEvent) => {
         dispatch(changeHeightRatio(e.target.valueAsNumber));
     }
+    const handleChangeImgUpload = (e: InputChangeEvent | any): void => {
+        e.preventDefault();
+        const fileReader = new FileReader();
+        if (e.target.files) {
+            fileReader.readAsDataURL(e.target.files[0]);
+        }
+        fileReader.onloadend = () => {
+            dispatch(changeBackgroundImg(fileReader.result as string))
+        }
+    }
+    const handleChangeReset = () =>{
+        dispatch(changeBackgroundImg(''))
+    }
+
 
     return (
         <ControlsBlock>
             <ControlsBox>
-                <Button onClick={()=>{alert("미구현")}}>Download 🚀</Button>
+                <Button onClick={() => { onHtmlToPng() }}>Download 🚀</Button>
                 <Button onClick={handleClickRandomizeButton}>Randomize ✨</Button>
             </ControlsBox>
             <ControlsBox title="Background color">
@@ -83,40 +98,40 @@ const Controls = () => {
                     value={options.borderWidth}
                     onChange={handleChangeBorderWidth}
                 />
-            </ControlsBox>          
+            </ControlsBox>
             <ControlsBox title="Font size">
                 <Input
                     type={'number'}
                     value={options.fontSize}
                     onChange={handleChangeFontSize}
                 />
-            </ControlsBox>   
+            </ControlsBox>
             {/* Text Shadow */}
-            <ControlsBox 
+            <ControlsBox
                 title='Text Shadow'
                 flexDirection='column'
                 alignItems='flex-start'
-            >   
+            >
                 <ControlsBox justifyContent='space-around'>
                     <ControlsBox title="X" justifyContent='space-around'>
                         <Input
                             type={'number'}
                             value={options.textShadow.x}
-                            onChange={e => { handleChangeTextShadow(e,"x") }}
+                            onChange={e => { handleChangeTextShadow(e, "x") }}
                         />
                     </ControlsBox>
                     <ControlsBox title="Y" justifyContent='space-around'>
                         <Input
                             type={'number'}
                             value={options.textShadow.y}
-                            onChange={e => { handleChangeTextShadow(e,"y") }}
+                            onChange={e => { handleChangeTextShadow(e, "y") }}
                         />
                     </ControlsBox>
                     <ControlsBox title="Blur" justifyContent='space-around'>
                         <Input
                             type={'number'}
                             value={options.textShadow.blur}
-                            onChange={e => { handleChangeTextShadow(e,"blur") }}
+                            onChange={e => { handleChangeTextShadow(e, "blur") }}
                         />
                     </ControlsBox>
                     <ColorPicker
@@ -125,20 +140,33 @@ const Controls = () => {
                     />
                 </ControlsBox>
             </ControlsBox>
-            <ControlsBox 
+            <ControlsBox
                 title="Text alignment"
                 flexDirection="column"
                 alignItems='flex-start'
             >
-                <TextAlignment options={options}/>
+                <TextAlignment options={options} />
             </ControlsBox>
+
+            <ControlsBox 
+                title="BackGround Upload"
+                flexDirection='column'
+                alignItems='flex-start'               
+            >
+                
+                <ImgInput 
+                    onChange={handleChangeImgUpload}
+                    onChangeReset={handleChangeReset}
+                ></ImgInput>
+            </ControlsBox>
+
             <ControlsBox title="Height ratio">
                 <Input
                     type={'number'}
                     value={options.heightRatio}
                     onChange={handleChangeHeighRatio}
                 />
-            </ControlsBox>               
+            </ControlsBox>
         </ControlsBlock>
     );
 }
