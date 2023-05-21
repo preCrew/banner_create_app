@@ -1,13 +1,11 @@
 @font-face {
     font-family: 'NotoSansKR-R';
     font-style: normal;
-    src: url('NotoSansKR-Regular.otf') format('opentype'),
-    url('NotoSansKR-Regular.woff') format('woff');
+    src: url('./NotoSansKR-Regular.woff') format('woff');
 }
 
 @font-face {
     font-family: 'NotoSansKR-B';
     font-style: normal;
-    src: url('NotoSansKR-Bold.otf') format('opentype'),
-    url('NotoSansKR-Bold.woff') format('woff');
+    src: url('./NotoSansKR-Bold.woff') format('woff');
 }
